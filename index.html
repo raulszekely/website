@@ -112,6 +112,17 @@
     border-top: 1px solid var(--rule);
     max-width: 44ch;
   }
+  .hero .tagline{
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-top: 18px;
+    max-width: 34ch;
+  }
+  .hero .hero-cta{ margin-top: 24px; font-size: 0.95rem; }
+  .hero .hero-cta a{ font-weight: 500; }
+  .hero .hero-cta .sep{ margin: 0 10px; color: var(--rule); }
   .hero-art{ width: 100%; height: auto; opacity: 0.9; }
 
   /* ---------- SECTION SCAFFOLDING ---------- */
@@ -184,6 +195,14 @@
     border-radius: 2px;
   }
 
+  .cta-link{
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--pine);
+    border-bottom: 1px solid var(--pine);
+  }
+  .cta-link:hover{ color: var(--pine-light); border-bottom-color: currentColor; }
+
   /* ---------- TEACHING ---------- */
   .topic-list{ list-style:none; margin:0 0 36px; padding:0; }
   .topic-list li{ padding: 18px 0; border-bottom: 1px solid var(--rule); }
@@ -194,6 +213,7 @@
   .format-list{ display:flex; flex-wrap:wrap; gap: 10px 30px; padding:0; margin:0; list-style:none; }
   .format-list li{ font-size: 0.92rem; }
   .format-list strong{ font-weight: 600; }
+  .format-inline{ font-size: 0.98rem; color: var(--ink-soft); margin: 0; }
 
   /* ---------- PUBLICATIONS ---------- */
   .pub{ padding: 20px 0; border-bottom: 1px solid var(--rule); }
@@ -307,9 +327,11 @@
     <div class="wrap hero-grid">
       <div>
         <h1>Dr Raul Székely</h1>
-        <p class="role">Psychologist and researcher working at the intersection of psychology, mental health and technology.</p>
-        <p class="lede">My work looks at how people experience and engage with digital and immersive technologies, and how psychological research can shape their development, evaluation and responsible use.</p>
-        <p class="position">Senior Research Fellow, School of Psychology, University of Roehampton</p>
+        <p class="role">Psychologist and researcher working at the intersection of psychology, technology and health.</p>
+        <p class="lede">I study how people experience, understand and respond to technology, and how psychological research can inform the way technologies are designed, evaluated and used.</p>
+        <p class="position">Senior Research Fellow · School of Psychology · University of Roehampton</p>
+        <p class="tagline">Good technology starts with understanding the people who use it.</p>
+        <p class="hero-cta"><a href="#research">Explore my research</a><span class="sep">·</span><a href="#consultancy">Work with me</a></p>
       </div>
       <svg class="hero-art" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract line diagram connecting a head outline to a network of nodes">
         <g fill="none" stroke="#2E4A3E" stroke-width="1.3">
@@ -347,9 +369,11 @@
       </div>
       <div class="about-grid">
         <div>
-          <p>I am a psychologist and researcher interested in how people experience, understand and engage with technology, particularly where it intersects with mental health. My work brings together psychology, digital health and emerging technologies — both the opportunities these bring, and the psychological, ethical and practical questions that come with them.</p>
-          <p>I completed my PhD in Applied Psychology at the University of Surrey, examining whether virtual reality could reduce mental health stigma among healthcare students. Before that, I completed an MSc in Organisational Psychiatry &amp; Psychology at King's College London and a BSc in Psychology at Brunel University.</p>
-          <p>I am interested in research that is theoretically informed, methodologically rigorous and useful in practice. Depending on the question, I draw on established models and approaches, among others: the COM-B model (Capability, Opportunity, Motivation – Behaviour) and Behaviour Change Wheel, which explain and help change behaviour; UTAUT (the Unified Theory of Acceptance and Use of Technology), which explains why people take up new technologies; the Person-Based Approach; and user-centred design. Where research involves people and technology, I place particular weight on understanding people's experiences, involving relevant users and stakeholders — including neurodivergent and disabled people — and attending to inclusion, accessibility, ethics and responsible practice.</p>
+          <p>I am a psychologist and researcher interested in how people experience technology and how technology affects behaviour, attitudes and health.</p>
+          <p>My research includes digital health, virtual reality and artificial intelligence. I am particularly interested in engagement, trust, stigma, representation and the ways technology can be made more accessible and inclusive.</p>
+          <p>My work draws on established psychological and behavioural theory, chosen to fit the question at hand — including the COM-B model (Capability, Opportunity, Motivation – Behaviour) and Behaviour Change Wheel, which explain and help change behaviour; UTAUT (the Unified Theory of Acceptance and Use of Technology), which explains why people take up new technologies; the Person-Based Approach; and user-centred design.</p>
+          <p>I completed my PhD in Applied Psychology at the University of Surrey, where I examined the use of virtual reality to reduce mental health stigma among healthcare students. I am now a Senior Research Fellow in the School of Psychology at the University of Roehampton.</p>
+          <p>I am a Chartered Psychologist and Associate Fellow of Advance HE. I am also a member of the British Psychological Society Cyberpsychology Section and the European Society for Research on Internet Interventions.</p>
         </div>
         <div>
           <div class="credential">
@@ -366,7 +390,7 @@
           </div>
           <div class="credential">
             <div class="org">Advance HE</div>
-            <div class="role">Associate Fellow; PGCert, Teaching and Learning in Higher Education</div>
+            <div class="role">Associate Fellow</div>
           </div>
         </div>
       </div>
@@ -378,64 +402,64 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Research</h2>
-        <p>My research examines psychological questions arising from the development and use of digital and emerging technologies, with a particular focus on mental health.</p>
+        <p>My research examines how people interact with technology and how psychological research can improve the way technology is designed and evaluated.</p>
       </div>
 
       <ul class="area-list">
         <li>
-          <h3>Digital mental health</h3>
-          <p>How digital technologies can support mental health, and how interventions can be built around people's needs.</p>
+          <h3>Digital health</h3>
+          <p>Research into digital interventions for health and wellbeing, including how people use them, what affects engagement and how they can be designed around users' needs.</p>
         </li>
         <li>
-          <h3>Virtual reality &amp; immersive technologies</h3>
-          <p>The psychological applications and implications of immersive experience.</p>
+          <h3>Virtual reality &amp; immersive technology</h3>
+          <p>Research into how immersive technologies affect perception, experience, attitudes and behaviour, including their use in mental health.</p>
         </li>
         <li>
-          <h3>Artificial intelligence &amp; mental health</h3>
-          <p>How people interact with AI-based technologies, and how these should be developed and evaluated.</p>
+          <h3>AI, trust &amp; behaviour</h3>
+          <p>Research into how people understand and respond to artificial intelligence, including trust, credibility, acceptance, safety and its use in mental health.</p>
         </li>
         <li>
-          <h3>Inclusive digital health</h3>
-          <p>Using qualitative research, user testing and co-design — including with neurodivergent and disabled people — to inform more inclusive technologies.</p>
+          <h3>Stigma, media &amp; representation</h3>
+          <p>Research into how mental health and health conditions are represented in media and technology, and how these representations affect attitudes and stigma.</p>
         </li>
         <li>
-          <h3>Engagement with digital interventions</h3>
-          <p>Using behavioural science to understand why engagement drops off, and how design can respond to real user experience.</p>
+          <h3>Engagement &amp; inclusion</h3>
+          <p>Research into why people use, avoid or disengage from technology, and how behavioural science, user research and co-design can help make technologies more accessible and useful — including for neurodivergent and disabled people.</p>
         </li>
       </ul>
 
       <h3 style="font-family:'Newsreader',serif; font-size:1.3rem; margin-bottom: 4px;">Selected research</h3>
 
       <div class="project">
-        <div><span class="tag">Co-author, framework</span></div>
+        <div><span class="tag">Horizon Europe · University of Roehampton</span></div>
+        <div>
+          <h3>Together for Mental Health</h3>
+          <p>A European project developing an evidence-based mental health toolbox for use in education and workplaces across seven countries. My work at Roehampton focuses on the UK case study and the development and evaluation of resources for secondary schools.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div><span class="tag">Innovate UK · Maudsley Learning</span></div>
         <div>
           <h3>MTAQ — Mental Health Technology Assessment of Quality</h3>
-          <p>A quality assurance framework for digital mental health tools, bringing together UX and co-design, data privacy and governance, and evidence-based practice. Developed with people with lived experience and professionals across research, clinical, technical and commercial settings.</p>
+          <p>A quality assurance framework for digital mental health tools, assessing areas including user experience and co-design, data privacy and security, and evidence and ongoing evaluation. The framework was developed through research with service users, healthcare and research professionals, and digital health experts.</p>
           <a class="more" href="#publications">Read the MTAQ paper</a>
         </div>
       </div>
 
       <div class="project">
-        <div><span class="tag">NIHR-SPCR funded</span></div>
+        <div><span class="tag">NIHR-SPCR · Queen Mary University of London</span></div>
         <div>
           <h3>Diabetes Balance</h3>
-          <p>Co-design of a web-based intervention to support emotional wellbeing in people with diabetes, including the development of a user engagement and implementation strategy.</p>
+          <p>Research contributing to the development and evaluation of a digital intervention for diabetes-related emotional distress, with a focus on user experience, engagement and implementation.</p>
         </div>
       </div>
 
       <div class="project">
-        <div><span class="tag">Horizon Europe</span></div>
-        <div>
-          <h3>Together for Mental Health</h3>
-          <p>A project developing a co-created digital mental health toolbox for schools, contributing to inclusive approaches to digital mental health promotion.</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <div><span class="tag">PhD, completed</span></div>
+        <div><span class="tag">PhD research · University of Surrey</span></div>
         <div>
           <h3>Virtual reality and mental health stigma</h3>
-          <p>Doctoral research bringing together psychological work on stigma and attitude change with emerging research on virtual reality, examining whether VR could reduce stigma among healthcare students.</p>
+          <p>Research examining whether virtual reality could be used to reduce mental health stigma among healthcare students, combining research on stigma and attitudes with immersive technology.</p>
         </div>
       </div>
 
@@ -447,19 +471,19 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Consultancy</h2>
-        <p>I work with organisations developing, evaluating or researching digital and emerging technologies in mental health and healthcare — advising on a research question, carrying out the research directly, or assessing the evidence behind an existing technology.</p>
+        <p>I work with organisations developing, evaluating or researching digital technologies in health and healthcare. Whether you are shaping a research idea, developing a technology, planning an evaluation or assessing existing evidence, I can provide research expertise at different stages of a project.</p>
       </div>
 
       <div class="consult-cols">
         <div>
           <h3>Research advice &amp; strategy</h3>
-          <p>For teams that know roughly what they want to find out, but want an experienced researcher to help shape the approach.</p>
+          <p>For teams that know what they want to find out, but want an experienced researcher to help shape the approach.</p>
           <ul>
             <li>Framing research questions and study design</li>
-            <li>Choosing methods for a qualitative or mixed-methods project</li>
-            <li>Designing research protocols and evaluation plans</li>
+            <li>Choosing methods for qualitative or mixed-methods research</li>
+            <li>Developing research protocols and evaluation plans</li>
             <li>Interpreting findings and their implications</li>
-            <li>Ongoing input across a research or development project</li>
+            <li>Providing research input throughout a project</li>
           </ul>
         </div>
         <div>
@@ -467,21 +491,21 @@
           <p>For teams that want the research carried out directly, from a single defined activity to a full evaluation.</p>
           <ul>
             <li>Co-design with users and stakeholders</li>
-            <li>Usability research — user testing, think-aloud studies and interviews</li>
-            <li>Effectiveness research — outcome evaluations, feasibility studies and pilot trials</li>
-            <li>Using behavioural science to diagnose engagement problems and design targeted improvements</li>
+            <li>User testing, think-aloud studies and interviews</li>
+            <li>Effectiveness research, including feasibility studies and pilot trials</li>
+            <li>Investigating and improving engagement</li>
             <li>Qualitative, quantitative and mixed-methods analysis</li>
-            <li>Research reports with clear recommendations</li>
+            <li>Research reports and recommendations</li>
           </ul>
         </div>
         <div>
           <h3>Evidence &amp; quality</h3>
-          <p>For teams that need to know whether a technology's evidence holds up — including for regulatory, commissioning or market-access purposes.</p>
+          <p>For teams that need to understand whether a technology's evidence, quality or research base stands up to scrutiny.</p>
           <ul>
             <li>Literature reviews, including systematic and scoping reviews</li>
             <li>Evidence synthesis and mapping</li>
             <li>Quality assessment of digital health tools</li>
-            <li>Identifying gaps the evidence hasn't yet addressed</li>
+            <li>Identifying gaps in the existing evidence</li>
             <li>Evidence-informed recommendations</li>
           </ul>
         </div>
@@ -489,7 +513,7 @@
 
       <div class="evidence">
         <h3>Ethics &amp; responsible practice</h3>
-        <p>All three are grounded in the same principles: protecting participant wellbeing, being clear about what people are consenting to, handling data carefully, and being honest about what a technology's evidence does and doesn't show.</p>
+        <p>Good research also means being clear about what people are being asked to do, protecting participant wellbeing, handling data responsibly and being honest about what the evidence does and does not show.</p>
       </div>
 
       <h3 style="font-family:'Newsreader',serif; font-size:1.1rem; margin-bottom: 14px;">Who I work with</h3>
@@ -502,7 +526,7 @@
         <li>Professional &amp; educational bodies</li>
       </ul>
 
-      <p><a href="#contact">Get in touch about a project</a></p>
+      <p><a href="#contact" class="cta-link">Get in touch about a project</a></p>
     </div>
   </section>
 
@@ -511,50 +535,33 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Teaching &amp; speaking</h2>
-        <p>I teach and speak about the psychological dimensions of digital and emerging technologies, for university, professional and wider audiences.</p>
+        <p>I teach and speak about psychology, technology and health for university, professional and wider audiences.</p>
       </div>
 
       <ul class="topic-list">
         <li>
           <h3>The psychology of virtual reality</h3>
-          <p>How virtual reality changes perception, experience, behaviour and social interaction.</p>
-        </li>
-        <li>
-          <h3>Virtual reality and mental health</h3>
-          <p>Applications of VR in mental health, and the mechanisms through which it may work.</p>
+          <p>How immersive technologies affect perception, experience, behaviour and social interaction.</p>
         </li>
         <li>
           <h3>Digital mental health</h3>
-          <p>The development, use and evaluation of digital interventions, including engagement and inclusion.</p>
+          <p>How digital technologies can support mental health, and the psychological questions involved in their development and evaluation.</p>
         </li>
         <li>
-          <h3>Engagement with digital health</h3>
-          <p>Why people take up, use or abandon digital health tools, and what that means for how they're designed.</p>
+          <h3>AI, trust &amp; mental health</h3>
+          <p>How people understand and interact with AI technologies, including trust, credibility, safety and responsible use in mental health.</p>
         </li>
         <li>
-          <h3>Artificial intelligence and mental health</h3>
-          <p>The psychological questions raised by people's interactions with AI-based technologies.</p>
+          <h3>Technology, stigma &amp; representation</h3>
+          <p>How mental health and health conditions are represented in media and technology, and how those representations affect attitudes and understanding.</p>
         </li>
         <li>
-          <h3>Inclusive digital health</h3>
-          <p>How user research and co-design — including with neurodivergent and disabled people — can build more inclusive technologies.</p>
-        </li>
-        <li>
-          <h3>Evaluating digital mental health technologies</h3>
-          <p>Assessing tools against evidence, quality, user experience and responsible practice.</p>
-        </li>
-        <li>
-          <h3>Ethics and responsible technology</h3>
-          <p>Ethical questions raised by digital, immersive and AI-based technologies in mental health.</p>
+          <h3>Psychology and technology</h3>
+          <p>How psychological theory and research can help us understand people's interactions with technology and inform its design and use.</p>
         </li>
       </ul>
 
-      <ul class="format-list">
-        <li><strong>Guest lectures</strong> — undergraduate &amp; postgraduate</li>
-        <li><strong>Invited talks</strong> — academic &amp; professional audiences</li>
-        <li><strong>Workshops</strong> — a topic or research approach</li>
-        <li><strong>Training</strong> — tailored for research teams</li>
-      </ul>
+      <p class="format-inline">Guest lectures · Invited talks · Workshops · Training</p>
     </div>
   </section>
 
@@ -563,18 +570,17 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Publications</h2>
-        <p>Work on digital mental health, virtual reality, psychology and technology, engagement with digital interventions, and the quality and evaluation of digital mental health tools.</p>
+        <p>My publications focus on digital health, virtual reality, psychology and technology, stigma, engagement and the evaluation of digital technologies.</p>
       </div>
 
       <div class="pub">
-        <p>Székely, R., Attoe, C., Ortega Vega, M., et al. (2026). The Mental Health Technology Assessment of Quality (MTAQ): development of a novel quality assurance framework for digital mental health tools. <span class="venue">Digital Health</span>.</p>
+        <p>Attoe, C., Székely, R., Ortega Vega, M., et al. (2026). The Mental Health Technology Assessment of Quality (MTAQ): development of a novel quality assurance framework for digital mental health tools. <span class="venue">Digital Health</span>, 12.</p>
         <a class="more" href="#">Read publication</a>
       </div>
-      <div class="pub"><p style="color:var(--ink-soft); font-style:italic;">Further publications listed on Google Scholar and ORCID.</p></div>
 
       <div class="book">
         <h3>Key Topics in the Psychology of Virtual Reality</h3>
-        <p>Routledge / British Psychological Society — a student-focused introduction to the psychology of virtual reality, covering theory and research on immersive experience and behaviour.</p>
+        <p>Routledge · British Psychological Society — a student-focused textbook introducing the psychology of virtual reality and the research behind immersive experience and behaviour.</p>
       </div>
 
       <div class="record-links">
@@ -589,7 +595,8 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Contact</h2>
-        <p>I'm available for selected research collaborations, consultancy projects, teaching, workshops and invited talks. If you'd like to discuss a project, please get in touch.</p>
+        <p>I am available for selected research collaborations, consultancy projects, teaching, workshops and invited talks.</p>
+        <p>Have a project, collaboration or speaking opportunity in mind? Get in touch.</p>
       </div>
 
       <div class="contact-layout">
