@@ -195,6 +195,24 @@
     border-radius: 2px;
   }
 
+  .steps-list{ list-style:none; margin: 0 0 40px; padding: 0; }
+  .steps-list li{
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .steps-list li:first-child{ border-top: 1px solid var(--rule); }
+  .steps-list .num{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--pine);
+    padding-top: 2px;
+  }
+  .steps-list strong{ display:block; font-size: 1rem; margin-bottom: 4px; }
+  .steps-list p{ margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
   .cta-link{
     font-size: 1.05rem;
     font-weight: 600;
@@ -450,7 +468,7 @@
         <div><span class="tag">NIHR-SPCR · Queen Mary University of London</span></div>
         <div>
           <h3>Diabetes Balance</h3>
-          <p>Research contributing to the development and evaluation of a digital intervention for diabetes-related emotional distress, with a focus on user experience, engagement and implementation.</p>
+          <p>Co-design of a web-based intervention to support emotional wellbeing in people with diabetes, including the development of a user engagement strategy and an implementation plan.</p>
         </div>
       </div>
 
@@ -514,6 +532,13 @@
         <h3>Ethics &amp; responsible practice</h3>
         <p>Good research also means being clear about what people are being asked to do, protecting participant wellbeing, handling data responsibly and being honest about what the evidence does and does not show.</p>
       </div>
+
+      <h3 style="font-family:'Newsreader',serif; font-size:1.1rem; margin-bottom: 14px;">How this works</h3>
+      <ol class="steps-list">
+        <li><span class="num">01</span><div><strong>Get in touch</strong><p>Send a short email about what you're working on and what you need.</p></div></li>
+        <li><span class="num">02</span><div><strong>Free 30-minute discovery call</strong><p>We talk through the project, your goals and whether I'm the right fit.</p></div></li>
+        <li><span class="num">03</span><div><strong>A short proposal</strong><p>If it's a fit, I'll set out the approach, scope and cost in writing.</p></div></li>
+      </ol>
 
       <h3 style="font-family:'Newsreader',serif; font-size:1.1rem; margin-bottom: 14px;">Who I work with</h3>
       <ul class="who-list">
