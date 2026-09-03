@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Raul Székely — Psychologist, Researcher, Consultant</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper: #E7E4DA;
+    --paper-deep: #DCD8CB;
+    --ink: #1B1D19;
+    --ink-soft: #57584C;
+    --pine: #2E4A3E;
+    --pine-light: #4C6E5C;
+    --rule: #BFB9A6;
+    --max: 880px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .serif{
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  a{ color: var(--pine); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover{ color: var(--pine-light); border-bottom-color: currentColor; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--pine); outline-offset: 3px; }
+
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(231,228,218,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-name{
+    font-family: 'Newsreader', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    border: none;
+  }
+  nav.links{
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+  nav.links a{ color: var(--ink-soft); border: none; }
+  nav.links a:hover{ color: var(--pine); }
+  #nav-toggle{ display:none; }
+  .burger{ display:none; background:none; border:none; cursor:pointer; padding:4px; }
+  .burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 76px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero h1{ font-size: 2.6rem; line-height: 1.15; margin-bottom: 14px; }
+  .hero .role{
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 20px;
+    max-width: 30ch;
+  }
+  .hero .lede{
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-bottom: 22px;
+  }
+  .hero .position{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--pine);
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    max-width: 44ch;
+  }
+  .hero-art{ width: 100%; height: auto; opacity: 0.9; }
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{ padding: 64px 0; border-top: 1px solid var(--rule); }
+  section.band{ background: var(--paper-deep); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .section-head{ margin-bottom: 36px; max-width: 60ch; }
+  .section-head h2{ font-size: 1.8rem; margin-bottom: 12px; }
+  .section-head p{ color: var(--ink-soft); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; }
+  .about-grid p{ margin: 0 0 16px; }
+  .credential{ margin-bottom: 20px; }
+  .credential .org{ font-weight: 600; }
+  .credential .role{ color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* ---------- RESEARCH AREAS ---------- */
+  .area-list{ list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+  .area-list li{ padding-left: 18px; border-left: 2px solid var(--pine); }
+  .area-list h3{ font-size: 1.05rem; margin-bottom: 4px; }
+  .area-list p{ margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+  .project{
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+  }
+  .project:first-of-type{ border-top: 1px solid var(--rule); }
+  .project .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--pine);
+    text-transform: none;
+  }
+  .project h3{ font-size: 1.25rem; margin: 4px 0 8px; }
+  .project p{ margin: 0; color: var(--ink-soft); }
+  .project a.more{ font-size: 0.9rem; display: inline-block; margin-top: 8px; }
+
+  /* ---------- CONSULTANCY ---------- */
+  .consult-cols{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+  .consult-cols h3{ font-size: 1.15rem; margin-bottom: 10px; }
+  .consult-cols p{ color: var(--ink-soft); margin: 0 0 14px; font-size: 0.96rem; }
+  .consult-cols ul{ margin: 0; padding-left: 18px; color: var(--ink-soft); }
+  .consult-cols li{ margin-bottom: 8px; font-size: 0.96rem; }
+
+  .evidence{ max-width: 60ch; margin-bottom: 44px; }
+  .evidence h3{ font-size: 1.2rem; margin-bottom: 10px; }
+  .evidence p{ color: var(--ink-soft); }
+
+  .pullquote{
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    max-width: 56ch;
+    color: var(--ink);
+    border-left: 2px solid var(--pine);
+    padding-left: 24px;
+    margin: 0 0 44px;
+  }
+
+  .who-list{ display:flex; flex-wrap: wrap; gap: 10px 14px; padding:0; margin:0 0 26px; list-style:none; }
+  .who-list li{
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    padding: 6px 12px;
+    border-radius: 2px;
+  }
+
+  /* ---------- TEACHING ---------- */
+  .topic-list{ list-style:none; margin:0 0 36px; padding:0; }
+  .topic-list li{ padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .topic-list li:first-child{ border-top: 1px solid var(--rule); }
+  .topic-list h3{ font-size: 1.1rem; margin-bottom: 6px; }
+  .topic-list p{ margin:0; color: var(--ink-soft); font-size: 0.95rem; }
+
+  .format-list{ display:flex; flex-wrap:wrap; gap: 10px 30px; padding:0; margin:0; list-style:none; }
+  .format-list li{ font-size: 0.92rem; }
+  .format-list strong{ font-weight: 600; }
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub{ padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .pub:first-of-type{ border-top: 1px solid var(--rule); }
+  .pub p{ margin: 0; font-family: 'Newsreader', serif; font-size: 1.02rem; }
+  .pub .venue{ font-style: italic; }
+  .pub a.more{ font-size: 0.88rem; font-family: 'IBM Plex Sans', sans-serif; display:inline-block; margin-top: 6px; }
+  .book{ display:grid; grid-template-columns: 1fr; gap: 8px; margin-top: 30px; }
+  .book h3{ font-size: 1.1rem; }
+  .book p{ color: var(--ink-soft); margin: 0; }
+  .record-links{ margin-top: 30px; display:flex; gap: 24px; font-size:0.92rem; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-list{ list-style:none; padding:0; margin: 0; font-size: 1.05rem; }
+  .contact-list li{ padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .contact-list li:first-child{ border-top: 1px solid var(--rule); }
+
+  .contact-layout{ display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+  .contact-form{ display: flex; flex-direction: column; gap: 18px; }
+  .contact-form .field{ display: flex; flex-direction: column; gap: 6px; }
+  .contact-form label{ font-size: 0.88rem; color: var(--ink-soft); }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 8px 2px;
+    border-radius: 0;
+  }
+  .contact-form select{ appearance: none; -webkit-appearance: none; background-image: none; padding-right: 20px; }
+  .contact-form textarea{ resize: vertical; min-height: 100px; }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus{
+    outline: none;
+    border-bottom-color: var(--pine);
+  }
+  .contact-form button{
+    align-self: flex-start;
+    margin-top: 6px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--pine);
+    border: none;
+    padding: 12px 26px;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .contact-form button:hover{ background: var(--pine-light); }
+  .form-note{ font-size: 0.82rem; color: var(--ink-soft); margin: 0; }
+
+  @media (max-width: 760px){
+    .contact-layout{ grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  footer{ padding: 40px 0 60px; }
+  footer p{ color: var(--ink-soft); font-size: 0.85rem; margin:0; }
+
+  @media (max-width: 900px) and (min-width: 761px){
+    .consult-cols{ grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 760px){
+    .nav-inner{ flex-wrap: wrap; }
+    nav.links{ display: none; width: 100%; flex-direction: column; gap: 12px; padding-top: 14px; }
+    nav.links.open{ display: flex; }
+    .burger{ display: block; }
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-art{ max-width: 240px; margin: 0 auto; }
+    .hero h1{ font-size: 2.1rem; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .area-list{ grid-template-columns: 1fr; }
+    .project{ grid-template-columns: 1fr; }
+    .consult-cols{ grid-template-columns: 1fr; gap: 30px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-name">Raul Székely</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#consultancy">Consultancy</a>
+      <a href="#teaching">Teaching &amp; speaking</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Dr Raul Székely</h1>
+        <p class="role">Psychologist and researcher working at the intersection of psychology, mental health and technology.</p>
+        <p class="lede">My work looks at how people experience and engage with digital and immersive technologies, and how psychological research can shape their development, evaluation and responsible use.</p>
+        <p class="position">Senior Research Fellow, School of Psychology, University of Roehampton</p>
+      </div>
+      <svg class="hero-art" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract line diagram connecting a head outline to a network of nodes">
+        <g fill="none" stroke="#2E4A3E" stroke-width="1.3">
+          <path d="M120 70 C90 75 70 105 72 138 C74 168 92 188 96 210 C98 224 92 232 100 240 L150 240 C156 232 152 222 156 210 C176 200 190 176 188 145 C186 108 158 66 120 70 Z" stroke-opacity="0.85"/>
+          <line x1="150" y1="240" x2="150" y2="256" stroke-opacity="0.85"/>
+          <circle cx="150" cy="150" r="2.4" fill="#2E4A3E" stroke="none"/>
+          <g stroke-opacity="0.55">
+            <line x1="150" y1="150" x2="230" y2="90"/>
+            <line x1="150" y1="150" x2="250" y2="150"/>
+            <line x1="150" y1="150" x2="236" y2="212"/>
+            <line x1="150" y1="150" x2="190" y2="250"/>
+            <line x1="230" y1="90" x2="250" y2="150"/>
+            <line x1="250" y1="150" x2="236" y2="212"/>
+            <line x1="230" y1="90" x2="270" y2="60"/>
+            <line x1="250" y1="150" x2="290" y2="140"/>
+          </g>
+          <g fill="#2E4A3E" stroke="none" fill-opacity="0.85">
+            <circle cx="230" cy="90" r="3"/>
+            <circle cx="250" cy="150" r="3"/>
+            <circle cx="236" cy="212" r="3"/>
+            <circle cx="190" cy="250" r="2.4"/>
+            <circle cx="270" cy="60" r="2.2"/>
+            <circle cx="290" cy="140" r="2.2"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>I am a psychologist and researcher interested in how people experience, understand and engage with technology, particularly where it intersects with mental health. My work brings together psychology, digital health and emerging technologies — both the opportunities these bring, and the psychological, ethical and practical questions that come with them.</p>
+          <p>I completed my PhD in Applied Psychology at the University of Surrey, examining whether virtual reality could reduce mental health stigma among healthcare students. Before that, I completed an MSc in Organisational Psychiatry &amp; Psychology at King's College London and a BSc in Psychology at Brunel University.</p>
+          <p>I am interested in research that is theoretically informed, methodologically rigorous and useful in practice. Depending on the question, I draw on established models and approaches, among others: the COM-B model (Capability, Opportunity, Motivation – Behaviour) and Behaviour Change Wheel, which explain and help change behaviour; UTAUT (the Unified Theory of Acceptance and Use of Technology), which explains why people take up new technologies; the Person-Based Approach; and user-centred design. Where research involves people and technology, I place particular weight on understanding people's experiences, involving relevant users and stakeholders — including neurodivergent and disabled people — and attending to inclusion, accessibility, ethics and responsible practice.</p>
+        </div>
+        <div>
+          <div class="credential">
+            <div class="org">University of Roehampton</div>
+            <div class="role">Senior Research Fellow, School of Psychology</div>
+          </div>
+          <div class="credential">
+            <div class="org">British Psychological Society</div>
+            <div class="role">Chartered Psychologist; member, Cyberpsychology Section</div>
+          </div>
+          <div class="credential">
+            <div class="org">European Society for Research on Internet Interventions</div>
+            <div class="role">Member</div>
+          </div>
+          <div class="credential">
+            <div class="org">Advance HE</div>
+            <div class="role">Associate Fellow; PGCert, Teaching and Learning in Higher Education</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Research</h2>
+        <p>My research examines psychological questions arising from the development and use of digital and emerging technologies, with a particular focus on mental health.</p>
+      </div>
+
+      <ul class="area-list">
+        <li>
+          <h3>Digital mental health</h3>
+          <p>How digital technologies can support mental health, and how interventions can be built around people's needs.</p>
+        </li>
+        <li>
+          <h3>Virtual reality &amp; immersive technologies</h3>
+          <p>The psychological applications and implications of immersive experience.</p>
+        </li>
+        <li>
+          <h3>Artificial intelligence &amp; mental health</h3>
+          <p>How people interact with AI-based technologies, and how these should be developed and evaluated.</p>
+        </li>
+        <li>
+          <h3>Inclusive digital health</h3>
+          <p>Using qualitative research, user testing and co-design — including with neurodivergent and disabled people — to inform more inclusive technologies.</p>
+        </li>
+        <li>
+          <h3>Engagement with digital interventions</h3>
+          <p>Using behavioural science to understand why engagement drops off, and how design can respond to real user experience.</p>
+        </li>
+      </ul>
+
+      <h3 style="font-family:'Newsreader',serif; font-size:1.3rem; margin-bottom: 4px;">Selected research</h3>
+
+      <div class="project">
+        <div><span class="tag">Co-author, framework</span></div>
+        <div>
+          <h3>MTAQ — Mental Health Technology Assessment of Quality</h3>
+          <p>A quality assurance framework for digital mental health tools, bringing together UX and co-design, data privacy and governance, and evidence-based practice. Developed with people with lived experience and professionals across research, clinical, technical and commercial settings.</p>
+          <a class="more" href="#publications">Read the MTAQ paper</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div><span class="tag">NIHR-SPCR funded</span></div>
+        <div>
+          <h3>Diabetes Balance</h3>
+          <p>Co-design of a web-based intervention to support emotional wellbeing in people with diabetes, including the development of a user engagement and implementation strategy.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div><span class="tag">Horizon Europe</span></div>
+        <div>
+          <h3>Together for Mental Health</h3>
+          <p>A project developing a co-created digital mental health toolbox for schools, contributing to inclusive approaches to digital mental health promotion.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div><span class="tag">PhD, completed</span></div>
+        <div>
+          <h3>Virtual reality and mental health stigma</h3>
+          <p>Doctoral research bringing together psychological work on stigma and attitude change with emerging research on virtual reality, examining whether VR could reduce stigma among healthcare students.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONSULTANCY -->
+  <section id="consultancy" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Consultancy</h2>
+        <p>I work with organisations developing, evaluating or researching digital and emerging technologies in mental health and healthcare — advising on a research question, carrying out the research directly, or assessing the evidence behind an existing technology.</p>
+      </div>
+
+      <div class="consult-cols">
+        <div>
+          <h3>Research advice &amp; strategy</h3>
+          <p>For teams that know roughly what they want to find out, but want an experienced researcher to help shape the approach.</p>
+          <ul>
+            <li>Framing research questions and study design</li>
+            <li>Choosing methods for a qualitative or mixed-methods project</li>
+            <li>Designing research protocols and evaluation plans</li>
+            <li>Interpreting findings and their implications</li>
+            <li>Ongoing input across a research or development project</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Research &amp; evaluation</h3>
+          <p>For teams that want the research carried out directly, from a single defined activity to a full evaluation.</p>
+          <ul>
+            <li>Co-design with users and stakeholders</li>
+            <li>Usability research — user testing, think-aloud studies and interviews</li>
+            <li>Effectiveness research — outcome evaluations, feasibility studies and pilot trials</li>
+            <li>Using behavioural science to diagnose engagement problems and design targeted improvements</li>
+            <li>Qualitative, quantitative and mixed-methods analysis</li>
+            <li>Research reports with clear recommendations</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Evidence &amp; quality</h3>
+          <p>For teams that need to know whether a technology's evidence holds up — including for regulatory, commissioning or market-access purposes.</p>
+          <ul>
+            <li>Literature reviews, including systematic and scoping reviews</li>
+            <li>Evidence synthesis and mapping</li>
+            <li>Quality assessment of digital health tools</li>
+            <li>Identifying gaps the evidence hasn't yet addressed</li>
+            <li>Evidence-informed recommendations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="evidence">
+        <h3>Ethics &amp; responsible practice</h3>
+        <p>All three are grounded in the same principles: protecting participant wellbeing, being clear about what people are consenting to, handling data carefully, and being honest about what a technology's evidence does and doesn't show.</p>
+      </div>
+
+      <h3 style="font-family:'Newsreader',serif; font-size:1.1rem; margin-bottom: 14px;">Who I work with</h3>
+      <ul class="who-list">
+        <li>Research teams &amp; universities</li>
+        <li>Digital health organisations</li>
+        <li>Technology developers</li>
+        <li>Healthcare organisations</li>
+        <li>Third-sector organisations</li>
+        <li>Professional &amp; educational bodies</li>
+      </ul>
+
+      <p><a href="#contact">Get in touch about a project</a></p>
+    </div>
+  </section>
+
+  <!-- TEACHING & SPEAKING -->
+  <section id="teaching">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Teaching &amp; speaking</h2>
+        <p>I teach and speak about the psychological dimensions of digital and emerging technologies, for university, professional and wider audiences.</p>
+      </div>
+
+      <ul class="topic-list">
+        <li>
+          <h3>The psychology of virtual reality</h3>
+          <p>How virtual reality changes perception, experience, behaviour and social interaction.</p>
+        </li>
+        <li>
+          <h3>Virtual reality and mental health</h3>
+          <p>Applications of VR in mental health, and the mechanisms through which it may work.</p>
+        </li>
+        <li>
+          <h3>Digital mental health</h3>
+          <p>The development, use and evaluation of digital interventions, including engagement and inclusion.</p>
+        </li>
+        <li>
+          <h3>Engagement with digital health</h3>
+          <p>Why people take up, use or abandon digital health tools, and what that means for how they're designed.</p>
+        </li>
+        <li>
+          <h3>Artificial intelligence and mental health</h3>
+          <p>The psychological questions raised by people's interactions with AI-based technologies.</p>
+        </li>
+        <li>
+          <h3>Inclusive digital health</h3>
+          <p>How user research and co-design — including with neurodivergent and disabled people — can build more inclusive technologies.</p>
+        </li>
+        <li>
+          <h3>Evaluating digital mental health technologies</h3>
+          <p>Assessing tools against evidence, quality, user experience and responsible practice.</p>
+        </li>
+        <li>
+          <h3>Ethics and responsible technology</h3>
+          <p>Ethical questions raised by digital, immersive and AI-based technologies in mental health.</p>
+        </li>
+      </ul>
+
+      <ul class="format-list">
+        <li><strong>Guest lectures</strong> — undergraduate &amp; postgraduate</li>
+        <li><strong>Invited talks</strong> — academic &amp; professional audiences</li>
+        <li><strong>Workshops</strong> — a topic or research approach</li>
+        <li><strong>Training</strong> — tailored for research teams</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Publications</h2>
+        <p>Work on digital mental health, virtual reality, psychology and technology, engagement with digital interventions, and the quality and evaluation of digital mental health tools.</p>
+      </div>
+
+      <div class="pub">
+        <p>Székely, R., Attoe, C., Ortega Vega, M., et al. (2026). The Mental Health Technology Assessment of Quality (MTAQ): development of a novel quality assurance framework for digital mental health tools. <span class="venue">Digital Health</span>.</p>
+        <a class="more" href="#">Read publication</a>
+      </div>
+      <div class="pub"><p style="color:var(--ink-soft); font-style:italic;">Further publications listed on Google Scholar and ORCID.</p></div>
+
+      <div class="book">
+        <h3>Key Topics in the Psychology of Virtual Reality</h3>
+        <p>Routledge / British Psychological Society — a student-focused introduction to the psychology of virtual reality, covering theory and research on immersive experience and behaviour.</p>
+      </div>
+
+      <div class="record-links">
+        <a href="#">Google Scholar</a>
+        <a href="#">ORCID</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>I'm available for selected research collaborations, consultancy projects, teaching, workshops and invited talks. If you'd like to discuss a project, please get in touch.</p>
+      </div>
+
+      <div class="contact-layout">
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="_replyto" required>
+          </div>
+          <div class="field">
+            <label for="subject">What's this about</label>
+            <select id="subject" name="subject">
+              <option>Research collaboration</option>
+              <option>Consultancy project</option>
+              <option>Teaching or a talk</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit">Send message</button>
+          <p class="form-note">Sent directly to my inbox — I'll reply personally.</p>
+        </form>
+
+        <ul class="contact-list">
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">ORCID</a></li>
+          <li><a href="#">Google Scholar</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Raul Székely.</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const links = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+</body>
+</html>
