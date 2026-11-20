@@ -311,7 +311,7 @@ footer .contact a{overflow-wrap:anywhere;font-size:17px}
     <h2>Talks and presentations</h2>
     <div class="talks">
       <div><h3>Conference presentations</h3><ul class="tl" id="conf"></ul><button class="morebtn" id="conf-more" hidden></button></div>
-      <div><h3>Invited talks and webinars</h3><ul class="tl" id="invited"></ul><button class="morebtn" id="invited-more" hidden></button></div>
+      <div><h3>Invited talks, workshops, and webinars</h3><ul class="tl" id="invited"></ul><button class="morebtn" id="invited-more" hidden></button></div>
     </div>
   </div>
 </section>
@@ -477,13 +477,13 @@ const conf=[
  ['Apr 2023','VR to tackle mental health stigma in healthcare students: Research progress and next steps','School of Psychology Research Student Conference, University of Surrey','Poster',1]
 ];
 const invited=[
- ['Oct 2026','Inclusive co-design of digital health interventions: Lessons from the DWELL study','Online industry workshop (Microsoft Teams)'],
+ ['Oct 2026','Inclusive co-design of digital health interventions','Queen Mary University of London (Microsoft Teams)'],
  ['Jun 2026','The psychology of digital technologies','Department of Psychology, Royal Holloway, University of London'],
  ['Jan 2025','Virtual reality as an innovative tool for mental health education and training','School of Health Sciences Insights Symposium, University of Surrey'],
  ['Oct 2024','‘It’s not everybody’s snapshot’: Addressing stigma in healthcare students through VR','People and Technology Research Group, University College Cork'],
  ['Mar 2024','Acceptability, feasibility, and preliminary evaluation of an animated VR game','Health Psychology Research Group, University of Surrey'],
  ['Nov 2023','Addressing stigma in healthcare students through VR','Maternal, Child and Family Health Research Cluster, University of Surrey'],
- ['May 2022','Mental health and well-being among ICU staff: An occupational psychology perspective','ICNARC Monthly Learning Hour, London']
+ ['May 2022','Mental health and well-being among ICU staff: An occupational psychology perspective','ICNARC Monthly Learning Hour']
 ];
 const tl=(a)=>a.map(t=>`<li><span class="d">${t[0]}</span><div><span class="ti">${esc(t[1])}</span><span class="w">${esc(t[2])}</span>${t[3]?`<br><span class="fmt">${t[3]}</span>`:''}${t[4]?`<span class="pres">Presenter</span>`:''}</div></li>`).join('');
 const TALK_LIMIT=5;
