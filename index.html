@@ -132,6 +132,7 @@ header.hero{background:var(--band);color:#fff;padding-top:clamp(28px,4vw,56px);p
 .tl .ti{display:block;font-weight:500;line-height:1.4;margin-bottom:2px}
 .tl .w{color:var(--mute);font-size:14.5px}
 .pres{display:inline-block;font-size:13px;font-weight:600;padding:0 8px;border-radius:4px;margin:4px 0 0 6px;background:color-mix(in srgb,var(--coral) 18%,transparent);color:light-dark(#a8321b,#ffb4a3)}
+.td{margin:6px 0 0;font-size:15.5px}
 .fmt{display:inline-block;font-size:13px;color:var(--mute);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-top:4px}
 .cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,48px);margin-top:32px}
 @media(max-width:900px){.cols3{grid-template-columns:minmax(0,1fr)}}
@@ -320,6 +321,16 @@ footer .contact a{overflow-wrap:anywhere;font-size:17px}
     <div class="side">
       <h2>Teaching and supervision</h2>
       <p>Teaching across undergraduate and postgraduate psychology, including research methods, statistics and the psychology of game design, alongside MSc dissertation supervision.</p>
+      <h3 style="margin:22px 0 10px">Teaching interests</h3>
+      <ul class="facts" style="margin-top:0">
+        <li>Mental health stigma and media representations of mental illness</li>
+        <li>The psychology of virtual reality and immersive experiences</li>
+        <li>Games user research and usability testing</li>
+        <li>Digital health: co-design and user engagement</li>
+        <li>Digital health: evaluation and quality assurance</li>
+        <li>Human-AI interaction: conversational agents, trust and safety</li>
+        <li>Evidence synthesis in the social and behavioural sciences</li>
+      </ul>
     </div>
     <div>
       <ul class="tl" id="teach"></ul>
@@ -466,7 +477,7 @@ const conf=[
  ['Apr 2023','VR to tackle mental health stigma in healthcare students: Research progress and next steps','School of Psychology Research Student Conference, University of Surrey','Poster',1]
 ];
 const invited=[
- ['Oct 2026','Inclusive co-design of digital health interventions: Lessons from the DWELL study','Knowledge exchange webinar (Microsoft Teams)'],
+ ['Oct 2026','Inclusive co-design of digital health interventions: Lessons from the DWELL study','Online industry workshop (Microsoft Teams)'],
  ['Jun 2026','The psychology of digital technologies','Department of Psychology, Royal Holloway, University of London'],
  ['Jan 2025','Virtual reality as an innovative tool for mental health education and training','School of Health Sciences Insights Symposium, University of Surrey'],
  ['Oct 2024','‘It’s not everybody’s snapshot’: Addressing stigma in healthcare students through VR','People and Technology Research Group, University College Cork'],
@@ -477,11 +488,11 @@ const invited=[
 const tl=(a)=>a.map(t=>`<li><span class="d">${t[0]}</span><div><span class="ti">${esc(t[1])}</span><span class="w">${esc(t[2])}</span>${t[3]?`<br><span class="fmt">${t[3]}</span>`:''}${t[4]?`<span class="pres">Presenter</span>`:''}</div></li>`).join('');
 document.getElementById('conf').innerHTML=tl(conf);
 document.getElementById('invited').innerHTML=tl(invited);
-document.getElementById('teach').innerHTML=tl([
- ['2025–26','Dissertation Supervisor, MSc Mental Health: Cultural Psychology and Psychiatry','Queen Mary University of London. Supervising systematic reviews and secondary data analyses from research question to protocol, analysis, poster and marking.'],
- ['2022–25','Graduate Teaching Assistant, School of Psychology','University of Surrey. Tutorials and workshops for BSc Psychology, MSc Psychology (Conversion) and MSc Psychology in Game Design and Digital Innovation: statistics, social psychology, psychology of global challenges, and psychology and game design, including usability testing labs with the Games and Innovation Nexus.'],
- ['2023–24','Academic Tutor, first-year BSc Psychology','University of Surrey. Academic skills tutorials for two groups of 20 students on critical thinking, writing and presentation.']
-]);
+document.getElementById('teach').innerHTML=[
+ ['2025–26','Dissertation Supervisor','MSc Mental Health: Cultural Psychology and Psychiatry, Queen Mary University of London','Supervising systematic review and secondary data analysis projects, from research question and protocol to analysis, poster and marking.'],
+ ['2022–25','Graduate Teaching Assistant','BSc Psychology, MSc Psychology (Conversion) and MSc Psychology in Game Design and Digital Innovation, University of Surrey','Tutorials and workshops on statistics, social psychology, psychology of global challenges, and psychology and game design, including usability testing sessions with the Games and Innovation Nexus, as well as coursework and exam marking.'],
+ ['2023–24','Academic Tutor','BSc Psychology, University of Surrey','Academic skills tutorials for first-year students on critical thinking, writing and presentation, plus marking and feedback across modules.']
+].map(t=>`<li><span class="d">${t[0]}</span><div><span class="ti">${esc(t[1])}</span><span class="w">${esc(t[2])}</span><p class="td">${esc(t[3])}</p></div></li>`).join('');
 const lst=(a)=>a.map(x=>`<li><b>${esc(x[0])}</b><span class="s">${esc(x[1])}</span></li>`).join('');
 document.getElementById('awards').innerHTML=lst([
  ['BPS Early Career Conference Bursary, 2026','£500 for CYPSY29, Porto'],
