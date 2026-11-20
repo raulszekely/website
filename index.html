@@ -110,6 +110,8 @@ header.hero{background:var(--band);color:#fff;padding-top:clamp(28px,4vw,56px);p
 .chip[aria-pressed=true]{background:var(--ultra);border-color:var(--ultra);color:#fff}
 .chip:hover{border-color:var(--ultraInk)}
 #q{flex:1 1 220px;min-height:44px;border:1px solid var(--rule);border-radius:999px;padding:0 18px;font:16px 'Source Sans 3',sans-serif;background:var(--bg);color:var(--ink)}
+.morebtn{margin-top:8px;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);font:600 15px 'Source Sans 3',sans-serif;cursor:pointer}
+.morebtn:hover{border-color:var(--ultraInk)}
 .count{font-size:14px;color:var(--mute);margin:6px 0 0}
 .yr{display:grid;grid-template-columns:90px minmax(0,1fr);gap:20px;border-top:1px solid var(--rule);padding:18px 0 4px}
 .yr>h3{font-size:30px;color:var(--ultraInk)}
@@ -299,6 +301,7 @@ footer .contact a{overflow-wrap:anywhere;font-size:17px}
     </div>
     <p class="count" id="count" aria-live="polite"></p>
     <div id="publist"></div>
+    <button class="morebtn" id="more" hidden>Show all publications</button>
   </div>
 </section>
 
@@ -412,7 +415,7 @@ const pubs=[
  ['review','Under review','Attoe, C., Szekely, R., Ortega Vega, M., Cross, S., & Doe, A.','Closing the quality gap in direct-to-consumer mental health technologies: Towards proportionate quality assurance to build trust and impact','Under review',''],
  ['review','Under review','Szekely, R., Edwards, J., Bennett, S. E., Ramasawmy, M., Hawkes, R., Poduval, S., Armstrong, M., Geraghty, A. W. A., Hardenberg, K., Lloyd, J., Ocran, N., Denford, S., Dack, C., & Ross, J.','Mapping the landscape of digital interventions for diabetes-related distress in adults with type 2 diabetes: A scoping review focused on equity and inclusion','Under review',''],
  ['review','Under review','Attoe, C., Szekely, R., Ortega Vega, M., Cross, S., & Doe, A.','Applying the MTAQ framework and assessment process to a novel men\'s mental wellbeing app: A case study','Under review',''],
- ['journal','2026','Szekely, R., Mason, O., & Frohlich, D.','Can an immersive VR game reduce mental illness stigma in healthcare students? An experimental study of efficacy and mechanisms','Annual Review of CyberTherapy and Telemedicine, 24, 345–353',''],
+ ['journal','2026','Szekely, R., Mason, O., & Frohlich, D.','Can an immersive VR game reduce mental illness stigma in healthcare students? An experimental study of efficacy and mechanisms','Annual Review of CyberTherapy and Telemedicine, 24, 345–353','https://www.arctt.info/volume-24-summer-2026'],
  ['journal','2026','Szekely, R., Armstrong, M., Geraghty, A. W. A., Edwards, J., Hardenberg, K., Lloyd, J., Hawkes, R., Ocran, N., Ramasawmy, M., Poduval, S., Turnbull, S., Dack, C., & Ross, J.','Digital health interventions for diabetes distress in type 2 diabetes: Protocol for a scoping literature review focused on equity and inclusion','JMIR Research Protocols, 15, e85406','https://doi.org/10.2196/85406'],
  ['journal','2026','Attoe, C., Szekely, R., Ortega Vega, M., Browne, E., Thomas, R., Kwan, C. W. T., Altchouler, P., De, A., Hariharan, N., Clay, G., Odoi, S., Cross, S., & Doe, A.','The Mental Health Technology Assessment of Quality (MTAQ): Development of a novel quality assurance framework for digital mental health tools','Digital Health, 12, 1–21','https://doi.org/10.1177/20552076261428307'],
  ['other','2026','Müller, V., Ninković, M., Szekely, R., & Wallrich, L.','Intergroup contact theory','In R.-M. Rahal (Ed.), Open Social Psychology (book chapter)','https://forrt.org/open-social-psychology/chapter12.html'],
@@ -429,19 +432,24 @@ const pubs=[
  ['journal','2023','Szekely, R., Mason, O., Frohlich, D., & Barley, E.','The use of virtual reality to reduce mental health stigma among healthcare and non-healthcare students: A systematic review','Behaviour & Information Technology, 44(10), 2116–2133','https://doi.org/10.1080/0144929X.2023.2232049'],
  ['journal','2021','Wranik, W. D., Szekely, R. R., Mayer, S., Hiligsmann, M., & Cheung, K. L.','The most important facilitators and barriers to the use of Health Technology Assessment in Canada: A best–worst scaling approach','Journal of Medical Economics, 24(1), 846–856','https://doi.org/10.1080/13696998.2021.1946326']
 ];
-let filt='all';
+let filt='all',showAll=false;const LIMIT=10;const more=document.getElementById('more');
+more.addEventListener('click',()=>{const wasAll=showAll;showAll=!showAll;renderPubs();if(wasAll)document.getElementById('publications').scrollIntoView()});
 const qEl=document.getElementById('q'),list=document.getElementById('publist'),cnt=document.getElementById('count');
 const bold=a=>esc(a).replace(/Szekely, R\.( R\.)?/,m=>`<span class="me">${m}</span>`);
 const renderPubs=()=>{
   const q=qEl.value.trim().toLowerCase();
-  const rows=pubs.filter(p=>(filt==='all'||p[0]===filt)&&(!q||(p[2]+' '+p[3]+' '+p[4]).toLowerCase().includes(q)));
+  const all=pubs.filter(p=>(filt==='all'||p[0]===filt)&&(!q||(p[2]+' '+p[3]+' '+p[4]).toLowerCase().includes(q)));
+  const limited=!q&&!showAll&&all.length>LIMIT;
+  const rows=limited?all.slice(0,LIMIT):all;
   const groups=[];rows.forEach(p=>{let g=groups.find(x=>x.k===p[1]);if(!g){g={k:p[1],a:[]};groups.push(g)}g.a.push(p)});
   const merged=[];groups.forEach(g=>{const k=/^\d/.test(g.k)?g.k:'Forthcoming';let m=merged.find(x=>x.k===k);if(!m){m={k,a:[]};merged.push(m)}m.a.push(...g.a)});
   list.innerHTML=merged.length?merged.map(g=>`<div class="yr"><h3>${g.k==='Forthcoming'?'<span style="font-size:20px">Forthcoming</span>':g.k}</h3><ul class="pubs">${g.a.map(p=>`<li><span class="t">${esc(p[3])}</span>${bold(p[2])} <span class="src">${esc(p[4])}</span>${p[5]?` <a class="lnk" href="${esc(p[5])}">${p[5].includes('doi.org')?'DOI':'Read'}</a>`:''}</li>`).join('')}</ul></div>`).join(''):'<p class="empty">No publications match that search.</p>';
   const peer=pubs.filter(p=>p[0]==='journal').length;
-  cnt.textContent=`Showing ${rows.length} of ${pubs.length} (${peer} peer-reviewed)`;
+  cnt.textContent=`Showing ${rows.length} of ${all.length}${filt==='all'&&!q?` (${peer} peer-reviewed)`:''}`;
+  more.hidden=!(all.length>LIMIT&&!q);
+  more.textContent=limited?`Show all ${all.length} publications`:'Show fewer';
 };
-document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{filt=b.dataset.f;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderPubs()}));
+document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{filt=b.dataset.f;showAll=false;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderPubs()}));
 qEl.addEventListener('input',renderPubs);
 renderPubs();
 
