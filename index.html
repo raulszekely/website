@@ -506,11 +506,11 @@ document.getElementById('awards').innerHTML=lst([
  ['Organisational Psychiatry and Psychology Prize, 2022','Highest mark in the MSc cohort, King\'s College London'],
  ['IoPPN Postgraduate Taught Scholarship, 2020','£1,000, King\'s College London']
 ]);
-document.getElementById('review').innerHTML=lst([
- ['Co-editor, BPS Cyberpsychology Bulletin','2025'],
- ['Journals','International Journal of Human-Computer Interaction; DIGITAL HEALTH; Journal of Medical Internet Research; JMIR Human Factors; Journal of Technology in Behavioral Science; Professional Psychology: Research and Practice; Journal of Advanced Nursing; BMC Medical Education; Educational Gerontology'],
- ['Conferences','19th European Congress of Psychology; 14th Conference of the Media Psychology Division (DGPs); BPS Cyberpsychology Section Annual Conference 2025']
-]);
+document.getElementById('review').innerHTML=[
+ ['Co-editor, BPS Cyberpsychology Bulletin',['2025']],
+ ['Journal peer reviewer',['International Journal of Human-Computer Interaction (Taylor & Francis)','DIGITAL HEALTH (Sage)','Journal of Medical Internet Research (JMIR Publications)','JMIR Human Factors (JMIR Publications)','Journal of Technology in Behavioral Science (Springer Nature)','Professional Psychology: Research and Practice (American Psychological Association)','Journal of Advanced Nursing (Wiley)','BMC Medical Education (Springer Nature)','Educational Gerontology (Taylor & Francis)']],
+ ['Conference peer reviewer',['19th European Congress of Psychology (European Federation of Psychologists\' Associations)','14th Conference of the Media Psychology Division (German Psychological Society)','Cyberpsychology Section Annual Conference 2025 (British Psychological Society)']]
+].map(x=>`<li><b>${esc(x[0])}</b><span class="s">${x[1].map(esc).join('<br>')}</span></li>`).join('');
 document.getElementById('members').innerHTML=lst([
  ['European Society for Research on Internet Interventions','Member, 2026–present'],
  ['BPS Division of Academics, Researchers and Teachers in Psychology','Member, 2026–present'],
