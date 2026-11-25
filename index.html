@@ -294,7 +294,6 @@ footer .contact a{overflow-wrap:anywhere;font-size:17px}
     <div class="tools" role="group" aria-label="Filter publications">
       <button class="chip" data-f="all" aria-pressed="true">All</button>
       <button class="chip" data-f="journal">Peer-reviewed</button>
-      <button class="chip" data-f="review">In press and under review</button>
       <button class="chip" data-f="other">Other writing</button>
       <input id="q" type="search" placeholder="Search titles, co-authors, journals" aria-label="Search publications">
     </div>
@@ -420,10 +419,6 @@ document.getElementById('projects').innerHTML=projects.map(p=>`<div class="proj"
 
 // type: journal | review | other
 const pubs=[
- ['review','In press','Szekely, R., & Pinto da Costa, M.','Mental health stigma in AI systems: Mechanisms, evidence, and future directions','In press',''],
- ['review','Under review','Attoe, C., Szekely, R., Ortega Vega, M., Cross, S., & Doe, A.','Closing the quality gap in direct-to-consumer mental health technologies: Towards proportionate quality assurance to build trust and impact','Under review',''],
- ['review','Under review','Szekely, R., Edwards, J., Bennett, S. E., Ramasawmy, M., Hawkes, R., Poduval, S., Armstrong, M., Geraghty, A. W. A., Hardenberg, K., Lloyd, J., Ocran, N., Denford, S., Dack, C., & Ross, J.','Mapping the landscape of digital interventions for diabetes-related distress in adults with type 2 diabetes: A scoping review focused on equity and inclusion','Under review',''],
- ['review','Under review','Attoe, C., Szekely, R., Ortega Vega, M., Cross, S., & Doe, A.','Applying the MTAQ framework and assessment process to a novel men\'s mental wellbeing app: A case study','Under review',''],
  ['journal','2026','Szekely, R., Mason, O., & Frohlich, D.','Can an immersive VR game reduce mental illness stigma in healthcare students? An experimental study of efficacy and mechanisms','Annual Review of CyberTherapy and Telemedicine, 24, 345–353','https://www.arctt.info/volume-24-summer-2026'],
  ['journal','2026','Szekely, R., Armstrong, M., Geraghty, A. W. A., Edwards, J., Hardenberg, K., Lloyd, J., Hawkes, R., Ocran, N., Ramasawmy, M., Poduval, S., Turnbull, S., Dack, C., & Ross, J.','Digital health interventions for diabetes distress in type 2 diabetes: Protocol for a scoping literature review focused on equity and inclusion','JMIR Research Protocols, 15, e85406','https://doi.org/10.2196/85406'],
  ['journal','2026','Attoe, C., Szekely, R., Ortega Vega, M., Browne, E., Thomas, R., Kwan, C. W. T., Altchouler, P., De, A., Hariharan, N., Clay, G., Odoi, S., Cross, S., & Doe, A.','The Mental Health Technology Assessment of Quality (MTAQ): Development of a novel quality assurance framework for digital mental health tools','Digital Health, 12, 1–21','https://doi.org/10.1177/20552076261428307'],
